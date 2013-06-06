@@ -1,0 +1,10 @@
+puts "Enter first name"
+			first_name = gets.chomp.to_S 
+			puts "Enter last name"
+			last_name = gets.chomp.to_s 
+			puts "Enter email address"
+			email_address = gets.chomp.to_s 
+			puts "Enter any notes"
+			notes = gets.chomp.downcase.to_s 
+
+			
