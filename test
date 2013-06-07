@@ -1,10 +1,17 @@
-puts "Enter first name"
-			first_name = gets.chomp.to_S 
-			puts "Enter last name"
-			last_name = gets.chomp.to_s 
-			puts "Enter email address"
-			email_address = gets.chomp.to_s 
-			puts "Enter any notes"
-			notes = gets.chomp.downcase.to_s 
+puts "\n#{"Please enter in add / modify / display all / display contact / display attribute / delete / exit".center(100)}\n\n"
+		firstresponse = gets.chomp.downcase.to_s 
 
-			
+		case firstresponse
+		when "add"
+			puts "Please enter first name"
+			firstname = gets.chomp.downcase.to_s
+			puts "Please enter last name"
+			lastname = gets.chomp.downcase.to_s 
+			puts "Please enter email address"
+			email = gets.chomp.downcase.to_s 
+			puts "Please enter any notes"
+			notes = gets.chomp.downcase.to_s 
+		
+			@crm.contact << firstname << lastname << email << notes
+		end
+	
