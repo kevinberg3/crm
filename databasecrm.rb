@@ -17,25 +17,16 @@ attr_accessor :contacts
 		@contacts << temporary_contact
 	end
 
-
+### Need to figure out still...
 	def modify_contact(change_attrib, attribute_to_change, attribute_modified)
-		@contacts.each { |x| 
- 			if (x.id == attribute_to_change)
- 				@contacts.replace([attribute_modified)
- 			elsif (x.firstname == attribute_to_change)
- 				@contacts.replace([attribute_modified])
- 			elsif (x.lastname == attribute_to_change)
-				@contacts.replace(attribute_modified)
- 			elsif (x.email == attribute_to_change)
- 				@contacts.replace(attribute_modified)
- 			elsif (x.notes == attribute_to_change)
- 				@contacts.replace(attribute_modified)
- 			else			
-			puts "\nYour selection #{change_attribute} was not found in CRM. Please try again.\n"
-			end }
+		contact = @contacts.detect do |contact|
+			(contact.id == change_attrib) || (contact.firstname == change_attrib) || (contact.lastname == change_attrib) || (contact.email == change_attrib)
+		end
+		if contact 
+			contact.send(attribute_to_change + '=', attribute_modified) rescue nil
+		end
 	end
-
-	
+		
 #displays all contacts - is working!
 	def display_all_contacts
  		@contacts.each { |i| i.display_contact }
@@ -67,7 +58,7 @@ attr_accessor :contacts
  		attribute_array << x.notes if "notes" == gather_attribute
  		 } 
  		return attribute_array
- 		end 
+ 	end 
  		
 #working!
  	def delete_contact(delete_request)
